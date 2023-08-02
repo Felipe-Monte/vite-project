@@ -9,6 +9,17 @@ export const Container = styled.div`
   grid-template-areas: 
   "header"
   "content";
+
+  > main {
+    grid-area: content;
+    overflow-y: auto;
+  }
+
+  .tags {
+    display: grid;
+    grid-template-columns: 49% 50%; //Usei 49% para não dar overflow
+    gap: 8px;
+  }
 `
 
 export const Form = styled.form`
