@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { FiMail, FiLock, FiUser } from 'react-icons/fi'
+import { Link } from 'react-router-dom'
 
 import { Container, Form, BackgroundImg } from './styles'
 
@@ -7,6 +9,14 @@ import { Button } from '../../components/Button'
 
 
 export function SignUp() {
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [password, setPassword] = useState("")
+
+  function handleSignUp() {
+    console.log(name, email, password)
+  }
+
   return (
     <Container>
       <BackgroundImg />
@@ -20,25 +30,28 @@ export function SignUp() {
           placeholder='Nome'
           type='text'
           icon={FiUser}
+          onChange={e => setName(e.target.value)}
         />
 
         <Input
           placeholder='E-mail'
           type='email'
           icon={FiMail}
+          onChange={e => setEmail(e.target.value)}
         />
 
         <Input
           placeholder='Senha'
           type='password'
           icon={FiLock}
+          onChange={e => setPassword(e.target.value)}
         />
 
-        <Button title='Entrar' />
+        <Button title='Cadastrar' onClick={handleSignUp} />
 
-        <a href="#">
+        <Link to='/'>
           Voltar para login
-        </a>
+        </Link>
       </Form>
 
     </Container>
