@@ -6,7 +6,16 @@ import { ButtonText } from '../../components/ButtonText'
 import { Tag } from '../../components/Tag'
 import { Button } from '../../components/Button'
 
+import { useNavigate } from 'react-router-dom'
+
 export function Details() {
+  const navigate = useNavigate();
+
+  const handleGoToHomePage = () => {
+    navigate('/');
+  };
+
+ 
   return (
     <Container>
       <Header />
@@ -31,7 +40,10 @@ export function Details() {
             <Tag title='Javascript' />
           </Section>
 
-          <Button title='Voltar' />
+          <Button
+            title='Voltar'
+            onClick={handleGoToHomePage}
+          />
         </Content>
       </main>
     </Container>
